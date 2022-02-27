@@ -1,0 +1,62 @@
+.node-label {
+  font-size: 0.675rem;
+  font-weight: 600;
+  line-height: 1.29;
+  letter-spacing: 0.16px;
+  margin: 0;
+  font-family: "IBM Plex Sans";
+  text-align: left;
+}
+
+.node-description {
+  font-size: 0.675rem;
+  font-weight: 400;
+  line-height: 1.29;
+  letter-spacing: 0.16px;
+  margin: 0;
+  text-align: left;
+}
+.node-content {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+}
+
+.input-node {
+  background-color: #f4f4f4;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  width: 280px;
+  height: 60px;
+}
+
+.node-container {
+  background-color: #f4f4f4;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  width: 280px;
+  height: 60px;
+  padding: 1rem;
+}
+
+.node-container.success {
+  border-left: 4px solid #42be65;
+}
+
+.node-container.running {
+  border-left: 4px solid #fccd27;
+}
+
+.node-container.open {
+  border-left: 4px solid #999999;
+}
+
+.node-container.failed {
+  border-left: 4px solid red;
+}
+
+.edge-container {
+  background-color: red;
+}
