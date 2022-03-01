@@ -19,22 +19,49 @@ const NodeSelectorItemContainer = styled.div`
   margin-bottom: 15px;
 `;
 
-export interface Props {
+export interface NodeSelectorProps {
   type: string;
   data: {
     label: string;
     description: string;
     version: string;
     health: string;
-    state: "open" | "running" | "success" | "failed";
+    state: "open" | "running" | "success" | "failed" | "warning";
   };
   code: string;
 }
-const NodeSelectorItem: React.FC<Props> = ({ type, data, code }) => {
+
+export interface NewNodeProps {
+  id: string;
+  type: string;
+  data: {
+    label: string;
+    description: string;
+    state: "open" | "running" | "success" | "failed" | "warning";
+  };
+  position: {
+    x: number;
+    y: number;
+  };
+  code: string;
+  handle?: {
+    bottom: boolean;
+    top: boolean;
+    left: boolean;
+    right: boolean;
+  };
+  className: string;
+}
+
+const NodeSelectorItem: React.FC<NodeSelectorProps> = ({
+  type,
+  data,
+  code,
+}) => {
   const flowData = useContext(FlowContext);
 
-  const newNode = {
-    id: (flowData.elementsMetadata.lastNodeId + 1).toString(),
+  const newNode: NewNodeProps = {
+    id: (Number(flowData.elementsMetadata.lastNodeId) + 1).toString(),
     type: type,
     data: {
       label: data.label,
@@ -53,7 +80,7 @@ const NodeSelectorItem: React.FC<Props> = ({ type, data, code }) => {
     flowData.setElements([...flowData.elements, newNode]);
     flowData.setElementsMetadata({
       ...flowData.elementsMetadata,
-      lastNodeId: (flowData.elementsMetadata.lastNodeId + 1).toString(),
+      lastNodeId: (Number(flowData.elementsMetadata.lastNodeId) + 1).toString(),
       LastNodePositionY: flowData.elementsMetadata.LastNodePositionY + 100,
     });
   };

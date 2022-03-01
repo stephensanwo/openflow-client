@@ -1,22 +1,18 @@
-import React, { useEffect } from "react";
+import React from "react";
 import CodeEditor from "@uiw/react-textarea-code-editor";
 
-interface Props {
-  codeData: string | undefined;
+export interface CodeProps {
+  codeData: any;
+  handleCodeChange: any;
 }
 
-const Code: React.FC<Props> = ({ codeData }) => {
-  const [code, setCode] = React.useState<string | undefined>("");
-  useEffect(() => {
-    setCode(codeData);
-    console.log(codeData);
-  }, [codeData]);
+const Code: React.FC<CodeProps> = ({ codeData, handleCodeChange }) => {
   return (
     <CodeEditor
-      value={code}
+      value={codeData}
       language="py"
       placeholder="Please enter Python code."
-      onChange={(evn) => setCode(evn.target.value)}
+      onChange={(event) => handleCodeChange(event)}
       padding={15}
       style={{
         fontSize: 12,

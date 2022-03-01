@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 import { FlowContext } from "../../pages/FlowItem/context";
 import Code from "../Code";
-import { Props } from "../NodeSelector/NodeSelectorItem";
+import { NodeSelectorProps } from "../NodeSelector/NodeSelectorItem";
 
 const FlowActionsDiv = styled.div`
   min-height: 100vh;
@@ -23,12 +23,11 @@ const CodeDiv = styled.div`
 `;
 
 const FlowActions: React.FC = () => {
-  const [elementData, setElementData] = useState<Props>();
+  const [elementData, setElementData] = useState<NodeSelectorProps>();
   const nodeContext = useContext(FlowContext);
   console.log(nodeContext.elements);
 
   // Filter for the curent node to display its actions
-
   useEffect(() => {
     const elementItem: any = nodeContext.elements.filter(
       (item: any) => item.id === nodeContext.nodeId
@@ -37,6 +36,16 @@ const FlowActions: React.FC = () => {
   }, [nodeContext.elements, nodeContext.nodeId]);
 
   console.log(elementData);
+
+  const handleCodeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    nodeContext.setElements(
+      nodeContext.elements.map((item) =>
+        item.id[0] === nodeContext.nodeId
+          ? Object.assign(item, { code: event.target.value })
+          : item
+      )
+    );
+  };
 
   return (
     <FlowActionsDiv>
@@ -50,7 +59,10 @@ const FlowActions: React.FC = () => {
         </small>
       </FlowActionsHeader>
       <CodeDiv>
-        <Code codeData={elementData?.code} />
+        <Code
+          codeData={elementData?.code}
+          handleCodeChange={handleCodeChange}
+        />
       </CodeDiv>
     </FlowActionsDiv>
   );
