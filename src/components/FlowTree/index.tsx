@@ -10,6 +10,7 @@ import ReactFlow, {
   Controls,
   updateEdge,
 } from "react-flow-renderer";
+import TreeControls from "./TreeControls";
 
 const nodeTypes = {
   input: CustomInputNode,
@@ -44,6 +45,7 @@ const FlowTree = () => {
 
   return (
     <FlowTreeDiv>
+      <TreeControls />
       <ReactFlowProvider>
         <ReactFlow
           elements={flowData.elements}

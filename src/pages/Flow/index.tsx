@@ -1,5 +1,8 @@
 import React from "react";
 import { SelectionTile } from "../../components/SelectionTile";
+
+interface FlowProps {}
+
 const Flow = () => {
   return (
     <div>

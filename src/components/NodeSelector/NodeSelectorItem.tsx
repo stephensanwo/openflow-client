@@ -33,6 +33,7 @@ export interface NodeSelectorProps {
 
 export interface NewNodeProps {
   id: string;
+  category: string;
   type: string;
   data: {
     label: string;
@@ -51,6 +52,8 @@ export interface NewNodeProps {
     right: boolean;
   };
   className: string;
+  source?: string;
+  target?: string;
 }
 
 const NodeSelectorItem: React.FC<NodeSelectorProps> = ({
@@ -62,6 +65,7 @@ const NodeSelectorItem: React.FC<NodeSelectorProps> = ({
 
   const newNode: NewNodeProps = {
     id: (Number(flowData.elementsMetadata.lastNodeId) + 1).toString(),
+    category: "node",
     type: type,
     data: {
       label: data.label,

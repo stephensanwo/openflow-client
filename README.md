@@ -1,6 +1,6 @@
 # OpenFlow
 
-An open source data analytics workflow automation
+An open source low-code analytics automation workflow
 
 ### OpenFlow Client
 

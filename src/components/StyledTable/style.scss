@@ -1,0 +1,20 @@
+.bx--pagination__left {
+  background-color: #f4f4f4;
+}
+.bx--pagination__right {
+  background-color: #f4f4f4;
+}
+
+.bx--modal .bx--pagination,
+.bx--modal .bx--pagination__control-buttons,
+.bx--modal .bx--text-input,
+.bx--modal .bx--text-area,
+.bx--modal .bx--search-input,
+.bx--modal .bx--select-input,
+.bx--modal .bx--dropdown,
+.bx--modal .bx--dropdown-list,
+.bx--modal .bx--number input[type="number"],
+.bx--modal .bx--date-picker__input {
+  background-color: #f4f4f4;
+  border-bottom: 1px solid #e0e0e0;
+}
