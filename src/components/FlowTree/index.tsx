@@ -17,7 +17,7 @@ const nodeTypes = {
 };
 
 const FlowTreeDiv = styled.div`
-  height: 100vh;
+  height: 95%;
   width: 100%;
   margin: auto;
   padding-top: 10px;
@@ -57,7 +57,9 @@ const FlowTree = () => {
           nodeTypes={nodeTypes}
           onEdgeUpdate={onEdgeUpdate}
         >
-          <Controls />
+          <div>
+            <Controls />
+          </div>
         </ReactFlow>
       </ReactFlowProvider>
     </FlowTreeDiv>

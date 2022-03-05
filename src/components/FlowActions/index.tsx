@@ -3,9 +3,12 @@ import styled from "styled-components";
 import { FlowContext } from "../../pages/FlowItem/context";
 import Code from "../Code";
 import { NodeSelectorProps } from "../NodeSelector/NodeSelectorItem";
+import { Button } from "carbon-components-react";
+
+import Notification from "../Notification";
 
 const FlowActionsDiv = styled.div`
-  min-height: 100vh;
+  height: 100%;
   width: 100%;
   margin: auto;
   background-color: #fff;
@@ -35,7 +38,7 @@ const FlowActions: React.FC = () => {
     setElementData(elementItem);
   }, [nodeContext.elements, nodeContext.nodeId]);
 
-  console.log(elementData);
+  // console.log(elementData);
 
   const handleCodeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     nodeContext.setElements(
@@ -50,7 +53,11 @@ const FlowActions: React.FC = () => {
   return (
     <FlowActionsDiv>
       <FlowActionsHeader>
-        <h5>{elementData?.data.description}</h5>
+        {elementData?.data.description ? (
+          <h5>{elementData?.data.description}</h5>
+        ) : (
+          <h5>{"Create a node to start"}</h5>
+        )}
         <small>
           {" "}
           Build your component or code nodes <br />
@@ -63,6 +70,29 @@ const FlowActions: React.FC = () => {
           codeData={elementData?.code}
           handleCodeChange={handleCodeChange}
         />
+        <div>
+          <Notification
+            title={"Runtime Errors"}
+            subtitle={"Runtime errors will be displayed here"}
+            caption={
+              <div
+                style={{ display: "flex", alignItems: "center", gap: "20px" }}
+              >
+                {"Time: 00:00:00 AM"}
+                <Button
+                  kind="secondary"
+                  size="small"
+                  style={{ marginBotton: "100px" }}
+                >
+                  View Detailed Error Message
+                </Button>
+              </div>
+            }
+            kind="info"
+            hideCloseButton={false}
+            styles={{ height: "1000px" }}
+          />
+        </div>
       </CodeDiv>
     </FlowActionsDiv>
   );

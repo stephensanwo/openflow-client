@@ -7,6 +7,8 @@ import {
 } from "@carbon/icons-react";
 import "./style.scss";
 import { StateColors } from "../../themes";
+import styled from "styled-components";
+import { Path } from "@carbon/pictograms-react";
 
 export interface StyledTableProps {
   isTableHeader: boolean;
@@ -21,6 +23,14 @@ export interface StyledTableProps {
   }>;
 }
 
+const EmptyMessage = styled.div`
+  width: 100%;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
 const StyledTable: React.FC<StyledTableProps> = ({
   isTableHeader,
   rowData,
@@ -50,10 +60,9 @@ const StyledTable: React.FC<StyledTableProps> = ({
       ) : (
         ""
       )}
-
-      <section className="bx--table-toolbar ">
-        <div className="bx--toolbar-content">
-          {isPrimaryButton ? (
+      {isPrimaryButton ? (
+        <section className="bx--table-toolbar ">
+          <div className="bx--toolbar-content">
             <button className="bx--btn bx--btn--sm bx--btn--primary">
               Primary Button
               <svg
@@ -69,14 +78,26 @@ const StyledTable: React.FC<StyledTableProps> = ({
                 <path d="M17 15L17 7 15 7 15 15 7 15 7 17 15 17 15 25 17 25 17 17 25 17 25 15 17 15z"></path>
               </svg>
             </button>
-          ) : (
-            ""
-          )}
-        </div>
-      </section>
+          </div>
+        </section>
+      ) : (
+        ""
+      )}
 
       {headerData[0].header === "" ? (
-        <Fragment></Fragment>
+        <Fragment>
+          <EmptyMessage>
+            <Path
+              style={{
+                width: "100px",
+                height: "100px",
+                fill: "#1f70ff",
+              }}
+            />{" "}
+            <br />
+            <p>Add new Nodes and Edges to your Flow</p>
+          </EmptyMessage>
+        </Fragment>
       ) : (
         <Fragment>
           {" "}

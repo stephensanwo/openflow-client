@@ -11,21 +11,13 @@ import {
 import Modal from "./Modal";
 
 const TreeControlsDiv = styled.div`
-  //   background-color: green;
   height: 30px;
   padding-left: 10px;
   display: flex;
   gap: 2.5px;
   width: 100%;
 `;
-const ButtonDiv = styled.div`
-  width: "50px";
-  height: "30px";
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-`;
+
 export interface ControlModalProps {
   label: string;
   description: string;
@@ -36,28 +28,28 @@ export interface ControlModalProps {
 const controlPanel: Array<ControlModalProps> = [
   {
     label: "Save",
-    description: "Save",
-    icon: <Save16 />,
+    description: "Save Flow",
+    icon: <Save16 fill={StateColors.open} />,
     key: "1",
     triggerModal: false,
   },
   {
-    label: "Node Settings",
+    label: "Nodes",
     description: "Node Settings",
-    icon: <EdgeNodeAlt16 />,
+    icon: <EdgeNodeAlt16 fill={StateColors.open} />,
     key: "2",
     triggerModal: true,
   },
   {
-    label: "Edge Settings",
+    label: "Edges",
     description: "Edge Settings",
-    icon: <TreeViewAlt16 />,
+    icon: <TreeViewAlt16 fill={StateColors.open} />,
     key: "3",
     triggerModal: true,
   },
   {
     label: "Delete",
-    description: "Delete",
+    description: "Delete Flow",
     icon: <Delete16 fill={StateColors.failed} />,
     key: "4",
     triggerModal: true,
@@ -80,13 +72,19 @@ const TreeControls: React.FC = () => {
   return (
     <TreeControlsDiv>
       {controlPanel.map((item) => (
-        <ButtonDiv
+        <Button
+          kind="secondary"
+          size="small"
+          iconDescription={item.description}
+          hasIconOnly
           key={item.key}
           onClick={() => toggleModal(item, item.triggerModal)}
         >
           {item.icon}
-          <small>{item.label}</small>
-        </ButtonDiv>
+          <small style={{ marginLeft: "0.5rem", color: "#fff" }}>
+            {item.label}
+          </small>
+        </Button>
       ))}
       <Modal
         modal={modal}

@@ -13,13 +13,14 @@ const FlowDiv = styled.div`
   padding-right: 3.5%;
   padding-left: 3.5%;
   padding-top: 40px;
-  margin-top: 45px;
   background-color: #f4f4f4;
 `;
 
 const FlowContainer = styled.div`
   display: flex;
   justify-content: space-between;
+  height: 85vh;
+  padding-bottom: 20px;
 `;
 
 const FlowHeader = styled.h2`

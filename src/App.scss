@@ -24,8 +24,16 @@ small {
   align-items: center;
 }
 
+body {
+  background-color: #f4f4f4;
+}
+
 // Carbon Overrides
 
 .bx--accordion__content {
   padding-right: 16px;
+}
+
+.container {
+  margin-bottom: 47px;
 }

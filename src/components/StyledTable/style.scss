@@ -16,5 +16,25 @@
 .bx--modal .bx--number input[type="number"],
 .bx--modal .bx--date-picker__input {
   background-color: #f4f4f4;
-  border-bottom: 1px solid #e0e0e0;
+  border: 1px solid #e0e0e0;
+}
+.bx--data-table {
+  border: 1px solid #e0e0e0;
+}
+
+.bx--data-table th {
+  background-color: #393939;
+  color: #ffffff;
+}
+
+.bx--data-table th button {
+  background-color: #393939;
+  color: #ffffff;
+}
+.bx--data-table th button:hover {
+  background-color: #393939;
+}
+
+.bx--data-table th button::after {
+  background-color: #393939;
 }

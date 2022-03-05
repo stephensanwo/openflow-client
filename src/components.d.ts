@@ -9,4 +9,5 @@ declare module "react-router-dom";
 declare module "styled-components";
 declare module "react-flow-renderer";
 declare module "prismjs";
+declare module "@carbon/pictograms-react";
 declare let module: any;

@@ -3,15 +3,17 @@ import styled from "styled-components";
 import SignedIn from "./SignedIn";
 import NotSignedIn from "./NotSignedIn";
 
-const HomeDiv = styled.div`
+export const HomeDiv = styled.div`
   min-height: 100vh;
   width: 100%;
-  margin-top: 45px;
+  padding-right: 3.5%;
+  padding-left: 3.5%;
+  padding-top: 40px;
   background-color: #f4f4f4;
 `;
 
 const Home = () => {
-  const [isSignedIn, setIsSignedIn] = useState<boolean>(false);
+  const [isSignedIn, setIsSignedIn] = useState<boolean>(true);
   return <HomeDiv>{isSignedIn ? <SignedIn /> : <NotSignedIn />}</HomeDiv>;
 };
 

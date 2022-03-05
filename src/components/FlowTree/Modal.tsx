@@ -32,13 +32,6 @@ const Modal: React.FC<ModalProps> = (props) => {
     },
   ];
 
-  let edgeHeaderData = [
-    {
-      header: "",
-      key: "",
-    },
-  ];
-
   let edgeRowData = [
     {
       sourceLabel: "",
@@ -47,6 +40,12 @@ const Modal: React.FC<ModalProps> = (props) => {
       targetLabel: "",
       targetDescription: "",
       targetsState: "",
+    },
+  ];
+  let edgeHeaderData = [
+    {
+      header: "",
+      key: "",
     },
   ];
 
@@ -90,12 +89,15 @@ const Modal: React.FC<ModalProps> = (props) => {
           targetsState: target.data.state,
         };
       });
-    edgeHeaderData = Object.keys(edgeRowData[0]).map((item, key) => {
-      return {
-        header: item[0].toUpperCase() + item.substr(1),
-        key: item,
-      };
-    });
+
+    if (edgeRowData.length > 0) {
+      edgeHeaderData = Object.keys(edgeRowData[0]).map((item, key) => {
+        return {
+          header: item[0].toUpperCase() + item.substr(1),
+          key: item,
+        };
+      });
+    }
   }
 
   return (
@@ -135,13 +137,6 @@ const Modal: React.FC<ModalProps> = (props) => {
         </div>
 
         <div className="bx--modal-content">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean id
-            accumsan augue. Phasellus consequat augue vitae tellus tincidunt
-            posuere. Curabitur justo urna, consectetur vel elit iaculis,
-            ultrices condimentum risus. Nulla facilisi. Etiam venenatis molestie
-            tellus. Quisque consectetur non risus eu rutrum.
-          </p>
           {props.selectedModal?.key === "2" ? (
             <StyledTable
               isTableHeader={false}
