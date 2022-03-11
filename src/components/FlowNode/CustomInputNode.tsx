@@ -8,8 +8,8 @@ import {
 } from "@carbon/icons-react";
 import { InlineLoading } from "carbon-components-react";
 import "./style.scss";
-import { FlowContext } from "../../pages/FlowItem/context";
-import { StateColors } from "../../themes";
+import { FlowItemContext } from "../../pages/FlowItem/context";
+import { StateColors } from "../../shared/themes";
 import { NewNodeProps } from "../NodeSelector/NodeSelectorItem";
 
 const CustomInputNode: React.FC<NewNodeProps> = ({
@@ -18,7 +18,7 @@ const CustomInputNode: React.FC<NewNodeProps> = ({
   position,
   handle,
 }) => {
-  const nodeContext = useContext(FlowContext);
+  const nodeContext = useContext(FlowItemContext);
 
   const handleNodeClick = (id: string) => {
     nodeContext?.setNodeId(id);

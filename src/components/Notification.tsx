@@ -7,7 +7,7 @@ interface NotificationProps {
   kind: string;
   hideCloseButton: boolean;
   caption: React.ReactNode;
-  styles: object;
+  styles?: object;
 }
 
 const Notification: React.FC<NotificationProps> = ({

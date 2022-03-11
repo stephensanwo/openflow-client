@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import { DotMark16, AddAlt16 } from "@carbon/icons-react";
 import styled from "styled-components";
-import { StateColors } from "../../themes";
-import { FlowContext } from "../../pages/FlowItem/context";
+import { StateColors } from "../../shared/themes";
+import { FlowItemContext } from "../../pages/FlowItem/context";
 
 const Description = styled.div`
   display: flex;
@@ -61,7 +61,7 @@ const NodeSelectorItem: React.FC<NodeSelectorProps> = ({
   data,
   code,
 }) => {
-  const flowData = useContext(FlowContext);
+  const flowData = useContext(FlowItemContext);
 
   const newNode: NewNodeProps = {
     id: (Number(flowData.elementsMetadata.lastNodeId) + 1).toString(),

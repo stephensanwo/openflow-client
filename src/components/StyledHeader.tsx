@@ -59,8 +59,9 @@ const StyledHeader: React.FC<Props> = ({ isHeaderMenu }) => {
           OpenFlow
         </HeaderName>
         <HeaderNavigation aria-label="OpenFlow">
-          <HeaderMenuItem href="/flow">Flow</HeaderMenuItem>
-          <HeaderMenuItem href="/nodes">Nodes</HeaderMenuItem>
+          <HeaderMenuItem href="/flow">Flow Studio</HeaderMenuItem>
+          <HeaderMenuItem href="/nodes">Node Designer</HeaderMenuItem>
+          <HeaderMenuItem href="/workspace">Node Designer</HeaderMenuItem>
           <HeaderMenuItem href="/marketplace">Marketplace</HeaderMenuItem>
         </HeaderNavigation>
         <HeaderGlobalBar>

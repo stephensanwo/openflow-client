@@ -3,4 +3,6 @@ export const StateColors = {
   success: "#42be65",
   failed: "#fa4d56",
   neutral: "#fff",
+  warning: "#f1c21b",
+  running: "#393939",
 };

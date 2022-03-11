@@ -4,22 +4,30 @@ import {
   Download16,
   PageFirst16,
   PageLast16,
+  Launch16,
+  Edit16,
+  DotMark16,
 } from "@carbon/icons-react";
 import "./style.scss";
-import { StateColors } from "../../themes";
+import { StateColors } from "../../shared/themes";
 import styled from "styled-components";
 import { Path } from "@carbon/pictograms-react";
+import { Link } from "react-router-dom";
 
 export interface StyledTableProps {
   isTableHeader: boolean;
   isPrimaryButton: boolean;
   isActions: boolean;
-  deleteAction: boolean;
-  downloadAction: boolean;
+  deleteAction?: boolean;
+  launchAction?: boolean;
+  editAction?: boolean;
+  downloadAction?: boolean;
   rowData: Array<{ [key: string]: any }>;
   headerData: Array<{
     header: string;
     key: string;
+    headerIsLink?: boolean;
+    to?: string;
   }>;
 }
 
@@ -39,6 +47,8 @@ const StyledTable: React.FC<StyledTableProps> = ({
   isActions,
   deleteAction,
   downloadAction,
+  launchAction,
+  editAction,
 }) => {
   const deleteClick = (event: React.MouseEvent<HTMLElement>) => {
     console.log("deleteClick");
@@ -47,6 +57,9 @@ const StyledTable: React.FC<StyledTableProps> = ({
   const downloadClick = (event: React.MouseEvent<HTMLElement>) => {
     console.log("deleteClick");
   };
+
+  console.log(headerData);
+  console.log(rowData);
 
   return (
     <div className="bx--data-table-container " data-table>
@@ -120,6 +133,16 @@ const StyledTable: React.FC<StyledTableProps> = ({
 
                 {isActions ? (
                   <Fragment>
+                    {launchAction ? (
+                      <th className="bx--table-column-menu">Launch</th>
+                    ) : (
+                      ""
+                    )}
+                    {editAction ? (
+                      <th className="bx--table-column-menu">Edit</th>
+                    ) : (
+                      ""
+                    )}
                     {downloadAction ? (
                       <th className="bx--table-column-menu">Download</th>
                     ) : (
@@ -139,12 +162,80 @@ const StyledTable: React.FC<StyledTableProps> = ({
             <tbody>
               {rowData.map((row) => (
                 <tr>
-                  {headerData?.map((header) => (
-                    <td>{row[`${header?.key}`]}</td>
-                  ))}
+                  {headerData?.map((header) =>
+                    header.headerIsLink ? (
+                      <td>
+                        <Link to={row.link}>{row[`${header?.key}`]} </Link>
+                      </td>
+                    ) : header?.key === "state" ||
+                      header?.key === "sourcesState" ||
+                      header?.key === "targetsState" ? (
+                      <td>
+                        {" "}
+                        <span
+                          style={{
+                            display: "flex",
+                            alignContent: "center",
+                            gap: "10px",
+                          }}
+                        >
+                          <DotMark16
+                            fill={
+                              row[`${header?.key}`] === "open"
+                                ? StateColors.open
+                                : row[`${header?.key}`] === "failed"
+                                ? StateColors.failed
+                                : row[`${header?.key}`] === "success"
+                                ? StateColors.success
+                                : row[`${header?.key}`] === "warning"
+                                ? StateColors.warning
+                                : row[`${header?.key}`] === "running"
+                                ? StateColors.running
+                                : StateColors.neutral
+                            }
+                          />{" "}
+                          {row[`${header?.key}`]}
+                        </span>
+                      </td>
+                    ) : (
+                      <td> {row[`${header?.key}`]}</td>
+                    )
+                  )}
 
                   {isActions ? (
                     <Fragment>
+                      {launchAction ? (
+                        <td className="bx--table-column-menu">
+                          <div
+                            data-overflow-menu
+                            role="menu"
+                            tabIndex={1}
+                            aria-label="Overflow menu description"
+                            className="bx--overflow-menu"
+                            onClick={downloadClick}
+                          >
+                            <Launch16 />
+                          </div>
+                        </td>
+                      ) : (
+                        ""
+                      )}
+                      {editAction ? (
+                        <td className="bx--table-column-menu">
+                          <div
+                            data-overflow-menu
+                            role="menu"
+                            tabIndex={1}
+                            aria-label="Overflow menu description"
+                            className="bx--overflow-menu"
+                            onClick={downloadClick}
+                          >
+                            <Edit16 />
+                          </div>
+                        </td>
+                      ) : (
+                        ""
+                      )}
                       {downloadAction ? (
                         <td className="bx--table-column-menu">
                           <div

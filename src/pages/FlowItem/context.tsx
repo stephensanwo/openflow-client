@@ -1,11 +1,11 @@
 import React, { createContext, useState } from "react";
 import { NewNodeProps } from "../../components/NodeSelector/NodeSelectorItem";
 
-interface FlowContextProviderProps {
+interface FlowItemContextProviderProps {
   children: React.ReactNode;
 }
 
-interface FlowContextType {
+interface FlowItemContextType {
   nodeId: string | null;
   setNodeId: React.Dispatch<React.SetStateAction<string | null>>;
   elements: Array<NewNodeProps>;
@@ -18,9 +18,11 @@ interface FlowContextType {
   setElementsMetadata: React.Dispatch<React.SetStateAction<Object | any>>;
 }
 
-export const FlowContext = createContext({} as FlowContextType);
+export const FlowItemContext = createContext({} as FlowItemContextType);
 
-export const FlowContextProvider = ({ children }: FlowContextProviderProps) => {
+export const FlowItemContextProvider = ({
+  children,
+}: FlowItemContextProviderProps) => {
   const [nodeId, setNodeId] = useState<string | null>("1");
   // calculate the screen size, get the flow tree width(45%) then deduct paddings
   const flowWindowCenter =
@@ -35,7 +37,7 @@ export const FlowContextProvider = ({ children }: FlowContextProviderProps) => {
   const [elements, setElements] = useState<any>([]);
 
   return (
-    <FlowContext.Provider
+    <FlowItemContext.Provider
       value={{
         nodeId,
         setNodeId,
@@ -46,7 +48,7 @@ export const FlowContextProvider = ({ children }: FlowContextProviderProps) => {
       }}
     >
       {children}
-    </FlowContext.Provider>
+    </FlowItemContext.Provider>
   );
 };
 

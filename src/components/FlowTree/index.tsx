@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
-import { FlowContext } from "../../pages/FlowItem/context";
+import { FlowItemContext } from "../../pages/FlowItem/context";
 import { CustomInputNode } from "../FlowNode";
 
 import ReactFlow, {
@@ -21,11 +21,12 @@ const FlowTreeDiv = styled.div`
   width: 100%;
   margin: auto;
   padding-top: 10px;
+  padding-bottom: 10px;
 `;
 
 const FlowTree = () => {
   //   const [elements, setElements] = useState(initialElements);
-  const flowData = useContext(FlowContext);
+  const flowData = useContext(FlowItemContext);
 
   const onElementsRemove = (elementsToRemove: object) =>
     flowData.setElements((els: any) => removeElements(elementsToRemove, els));

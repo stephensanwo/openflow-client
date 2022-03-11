@@ -2,8 +2,9 @@ import React from "react";
 import styled from "styled-components";
 import { Tile, Button } from "carbon-components-react";
 import { Flow16, EdgeNodeAlt16 } from "@carbon/icons-react";
-import { StateColors } from "../../themes";
+import { StateColors } from "../../shared/themes";
 import Notification from "../../components/Notification";
+import { Link } from "react-router-dom";
 
 const SignedInContainer = styled.div`
   height: 90vh;
@@ -39,9 +40,15 @@ const SignedIn = () => {
             <small>Graphically Build Analytics Workflow</small>
             <h4>Flow Studio</h4>
           </div>
-          <Button renderIcon={Flow16} iconDescription="Run Flow" size={"field"}>
-            Launch Flow
-          </Button>
+          <Link to="/flow">
+            <Button
+              renderIcon={Flow16}
+              iconDescription="Run Flow"
+              size={"field"}
+            >
+              Create Flow
+            </Button>
+          </Link>
         </div>
 
         <div
@@ -55,14 +62,16 @@ const SignedIn = () => {
             <small>Create Code and Component Nodes</small>
             <h4>Node Designer</h4>
           </div>
-          <Button
-            renderIcon={EdgeNodeAlt16}
-            iconDescription="Run Flow"
-            size={"field"}
-            kind="secondary"
-          >
-            Create Nodes
-          </Button>
+          <Link to="/nodes">
+            <Button
+              renderIcon={EdgeNodeAlt16}
+              iconDescription="Run Flow"
+              size={"field"}
+              kind="secondary"
+            >
+              Create Nodes
+            </Button>
+          </Link>
         </div>
       </SignedInActions>
 

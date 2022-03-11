@@ -1,9 +1,8 @@
 import React, { Fragment, useContext } from "react";
 import { Close32 } from "@carbon/icons-react";
-import "./style.scss";
 import { ControlModalProps } from "./TreeControls";
 import StyledTable from "../StyledTable";
-import { FlowContext } from "../../pages/FlowItem/context";
+import { FlowItemContext } from "../../pages/FlowItem/context";
 
 interface ModalProps {
   modal: string;
@@ -11,11 +10,11 @@ interface ModalProps {
   selectedModal: ControlModalProps;
 }
 
-const Modal: React.FC<ModalProps> = (props) => {
+const Settings: React.FC<ModalProps> = (props) => {
   const handleClose = (e: React.MouseEvent<HTMLElement>) => {
     props.toggleModal(e);
   };
-  const { elements, setElements } = useContext(FlowContext);
+  const { elements, setElements } = useContext(FlowItemContext);
 
   let nodeHeaderData = [
     {
@@ -111,7 +110,7 @@ const Modal: React.FC<ModalProps> = (props) => {
       aria-describedby="disabled-heading"
       tabIndex={-1}
     >
-      <div className="bx--modal-container bx--modal-container--lg">
+      <div className="bx--modal-container bx--modal-container-fullscreen ">
         <div className="bx--modal-header">
           <p
             className="bx--modal-header__label bx--type-delta"
@@ -146,6 +145,8 @@ const Modal: React.FC<ModalProps> = (props) => {
               isActions={true}
               deleteAction={true}
               downloadAction={true}
+              launchAction={false}
+              editAction={false}
             />
           ) : props.selectedModal?.key === "3" ? (
             <StyledTable
@@ -183,4 +184,4 @@ const Modal: React.FC<ModalProps> = (props) => {
   );
 };
 
-export default Modal;
+export default Settings;

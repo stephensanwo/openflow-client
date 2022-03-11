@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
-import { FlowContext } from "../../pages/FlowItem/context";
+import { FlowItemContext } from "../../pages/FlowItem/context";
 import Code from "../Code";
 import { NodeSelectorProps } from "../NodeSelector/NodeSelectorItem";
 import { Button } from "carbon-components-react";
@@ -27,7 +27,7 @@ const CodeDiv = styled.div`
 
 const FlowActions: React.FC = () => {
   const [elementData, setElementData] = useState<NodeSelectorProps>();
-  const nodeContext = useContext(FlowContext);
+  const nodeContext = useContext(FlowItemContext);
   console.log(nodeContext.elements);
 
   // Filter for the curent node to display its actions
@@ -90,7 +90,6 @@ const FlowActions: React.FC = () => {
             }
             kind="info"
             hideCloseButton={false}
-            styles={{ height: "1000px" }}
           />
         </div>
       </CodeDiv>

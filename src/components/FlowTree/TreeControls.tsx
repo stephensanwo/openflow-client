@@ -1,18 +1,20 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { Button } from "carbon-components-react";
-import { StateColors } from "../../themes";
+import { StateColors } from "../../shared/themes";
 import {
   TreeViewAlt16,
   Save16,
   EdgeNodeAlt16,
   Delete16,
 } from "@carbon/icons-react";
-import Modal from "./Modal";
+import Settings from "./Settings";
 
 const TreeControlsDiv = styled.div`
-  height: 30px;
+  height: 40px;
   padding-left: 10px;
+  padding-bottom: 10px;
+  background-color: #fff;
   display: flex;
   gap: 2.5px;
   width: 100%;
@@ -86,7 +88,7 @@ const TreeControls: React.FC = () => {
           </small>
         </Button>
       ))}
-      <Modal
+      <Settings
         modal={modal}
         toggleModal={toggleModal}
         selectedModal={selectedModal}

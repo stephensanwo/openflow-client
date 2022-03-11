@@ -17,7 +17,7 @@ const TileFooter = styled.div`
 `;
 
 const TileContainer = styled.div`
-  width: 50px;
+  width: 250px;
 `;
 
 export interface SelectionTile {
