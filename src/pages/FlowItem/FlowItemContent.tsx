@@ -6,7 +6,7 @@ import NodeSelector from "../../components/NodeSelector";
 import { Play32 } from "@carbon/icons-react";
 import { Button } from "carbon-components-react";
 import { PageHeader, HeaderAction } from "../../shared/layout";
-import { Redirect, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { FlowContext } from "../Flow/context";
 
 const FlowItemContainer = styled.div`

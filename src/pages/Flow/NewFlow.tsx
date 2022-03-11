@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { Close32 } from "@carbon/icons-react";
-import { Form, TextInput, TextArea, Dropdown } from "carbon-components-react";
+import { Form, TextInput } from "carbon-components-react";
 import { FlowContext } from "./context";
 
 interface ModalProps {

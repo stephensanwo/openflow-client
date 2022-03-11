@@ -38,7 +38,7 @@ const headerData = [
     key: "state",
   },
 ];
-const FlowContent: React.FC = ({}) => {
+const FlowContent: React.FC = () => {
   const flowData = useContext(FlowContext);
   console.log(flowData);
 

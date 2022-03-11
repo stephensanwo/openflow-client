@@ -22,30 +22,30 @@ const MenuPanel = (props: Props) => {
     >
       <SideNavItems>
         <SideNavMenu renderIcon={Fade16} title="Category title">
-          <SideNavMenuItem href="javascript:void(0)">Link</SideNavMenuItem>
-          <SideNavMenuItem aria-current="page" href="javascript:void(0)">
+          <SideNavMenuItem href="/">Link</SideNavMenuItem>
+          <SideNavMenuItem aria-current="page" href="/">
             Link
           </SideNavMenuItem>
-          <SideNavMenuItem href="javascript:void(0)">Link</SideNavMenuItem>
+          <SideNavMenuItem href="/">Link</SideNavMenuItem>
         </SideNavMenu>
         <SideNavMenu renderIcon={Fade16} title="Category title">
-          <SideNavMenuItem href="javascript:void(0)">Link</SideNavMenuItem>
-          <SideNavMenuItem aria-current="page" href="javascript:void(0)">
+          <SideNavMenuItem href="/">Link</SideNavMenuItem>
+          <SideNavMenuItem aria-current="page" href="/">
             Link
           </SideNavMenuItem>
-          <SideNavMenuItem href="javascript:void(0)">Link</SideNavMenuItem>
+          <SideNavMenuItem href="/">Link</SideNavMenuItem>
         </SideNavMenu>
         <SideNavMenu renderIcon={Fade16} title="Category title">
-          <SideNavMenuItem href="javascript:void(0)">Link</SideNavMenuItem>
-          <SideNavMenuItem aria-current="page" href="javascript:void(0)">
+          <SideNavMenuItem href="/">Link</SideNavMenuItem>
+          <SideNavMenuItem aria-current="page" href="/">
             Link
           </SideNavMenuItem>
-          <SideNavMenuItem href="javascript:void(0)">Link</SideNavMenuItem>
+          <SideNavMenuItem href="/">Link</SideNavMenuItem>
         </SideNavMenu>
-        <SideNavLink renderIcon={Fade16} href="javascript:void(0)">
+        <SideNavLink renderIcon={Fade16} href="/">
           Link
         </SideNavLink>
-        <SideNavLink renderIcon={Fade16} href="javascript:void(0)">
+        <SideNavLink renderIcon={Fade16} href="/">
           Link
         </SideNavLink>
       </SideNavItems>

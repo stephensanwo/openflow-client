@@ -11,7 +11,6 @@ import {
   HeaderGlobalAction,
   HeaderGlobalBar,
   HeaderNavigation,
-  HeaderMenu,
   HeaderMenuItem,
   HeaderMenuButton,
 } from "carbon-components-react";

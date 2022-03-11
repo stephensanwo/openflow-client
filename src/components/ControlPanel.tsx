@@ -10,7 +10,7 @@ const ControlPanel: React.FC<Props> = (props) => {
     <HeaderPanel expanded={props.expanded}>
       <Switcher>
         <SwitcherItem>
-          <Link to="javascript:void(0)">Link</Link>
+          <Link to="/">Link</Link>
         </SwitcherItem>
       </Switcher>
     </HeaderPanel>
