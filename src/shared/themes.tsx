@@ -6,3 +6,8 @@ export const StateColors = {
   warning: "#f1c21b",
   running: "#393939",
 };
+
+export const ThemeColors = {
+  bgPrimary: "#f4f4f4",
+  bgSecondary: "#393939",
+};

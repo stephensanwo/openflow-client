@@ -5,6 +5,9 @@
   background-color: #f4f4f4;
 }
 
+.bx--data-table-container {
+  width: 100%;
+}
 .bx--modal .bx--pagination,
 .bx--modal .bx--pagination__control-buttons,
 .bx--modal .bx--text-input,
@@ -30,18 +33,22 @@
 }
 
 .bx--data-table th {
-  background-color: #393939;
+  background-color: #161616;
   color: #ffffff;
 }
 
+// .bx--data-table td {
+//   background-color: #fff;
+// }
+
 .bx--data-table th button {
-  background-color: #393939;
+  background-color: #161616;
   color: #ffffff;
 }
 .bx--data-table th button:hover {
-  background-color: #393939;
+  background-color: #161616;
 }
 
 .bx--data-table th button::after {
-  background-color: #393939;
+  background-color: #161616;
 }

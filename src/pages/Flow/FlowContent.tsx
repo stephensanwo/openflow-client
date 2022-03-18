@@ -51,7 +51,6 @@ const FlowContent: React.FC = () => {
       isActions={true}
       deleteAction={true}
       downloadAction={true}
-      launchAction={true}
       editAction={true}
     />
   );

@@ -80,7 +80,7 @@ const FlowActions: React.FC = () => {
               >
                 {"Time: 00:00:00 AM"}
                 <Button
-                  kind="secondary"
+                  kind="ghost"
                   size="small"
                   style={{ marginBotton: "100px" }}
                 >

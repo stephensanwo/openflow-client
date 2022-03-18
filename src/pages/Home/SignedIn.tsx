@@ -59,10 +59,10 @@ const SignedIn = () => {
           }}
         >
           <div>
-            <small>Create Code and Component Nodes</small>
+            <small>Create Re-usable Nodes for Users</small>
             <h4>Node Designer</h4>
           </div>
-          <Link to="/nodes">
+          <Link to="/node">
             <Button
               renderIcon={EdgeNodeAlt16}
               iconDescription="Run Flow"
@@ -85,7 +85,7 @@ const SignedIn = () => {
             style={{
               width: "100%",
               height: "150px",
-              backgroundColor: "#393939",
+              backgroundColor: StateColors.neutral,
             }}
           >
             <div
@@ -97,7 +97,7 @@ const SignedIn = () => {
                 height: "100%",
               }}
             >
-              <h5 style={{ color: StateColors.neutral }}>Flow Activity</h5>
+              <h5 style={{ color: StateColors.running }}>Flow Activity</h5>
               <div
                 style={{
                   display: "flex",
@@ -106,7 +106,7 @@ const SignedIn = () => {
                 }}
               >
                 <div>
-                  <h2 style={{ color: StateColors.neutral }}>15</h2>
+                  <h2 style={{ color: StateColors.running }}>15</h2>
                   <small>Flow Activity</small>
                 </div>
                 <div>
@@ -118,7 +118,7 @@ const SignedIn = () => {
                   <small>Running Flows</small>
                 </div>
                 <div>
-                  <h2 style={{ color: StateColors.neutral }}>1</h2>
+                  <h2 style={{ color: StateColors.running }}>1</h2>
                   <small>Open Flows</small>
                 </div>
               </div>
@@ -128,7 +128,7 @@ const SignedIn = () => {
             style={{
               width: "100%",
               height: "150px",
-              backgroundColor: "#393939",
+              backgroundColor: StateColors.neutral,
               marginTop: "20px",
             }}
           >
@@ -141,7 +141,7 @@ const SignedIn = () => {
                 height: "100%",
               }}
             >
-              <h5 style={{ color: StateColors.neutral }}>Your Nodes</h5>
+              <h5 style={{ color: StateColors.running }}>Your Nodes</h5>
               <div
                 style={{
                   display: "flex",
@@ -150,14 +150,14 @@ const SignedIn = () => {
                 }}
               >
                 <div>
-                  <h2 style={{ color: StateColors.neutral }}>15</h2>
+                  <h2 style={{ color: StateColors.running }}>15</h2>
                   <small>Component Nodes</small>
                 </div>
                 <div>
-                  <h2 style={{ color: StateColors.neutral }}>10</h2>
+                  <h2 style={{ color: StateColors.running }}>10</h2>
                   <small>Code Nodes</small>
                 </div>
-                <div style={{ color: StateColors.neutral }}>
+                <div style={{ color: StateColors.running }}>
                   <h2>4</h2>
                   <small>Marketplace</small>
                 </div>
@@ -189,7 +189,7 @@ const SignedIn = () => {
               >
                 {"Time: 00:00:00 AM"}
                 <Button
-                  kind="secondary"
+                  kind="ghost"
                   size="small"
                   style={{ marginBotton: "100px" }}
                 >
@@ -210,7 +210,7 @@ const SignedIn = () => {
               >
                 {"Time: 00:00:00 AM"}
                 <Button
-                  kind="secondary"
+                  kind="ghost"
                   size="small"
                   style={{ marginBotton: "100px" }}
                 >

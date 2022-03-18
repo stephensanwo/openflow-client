@@ -145,7 +145,6 @@ const Settings: React.FC<ModalProps> = (props) => {
               isActions={true}
               deleteAction={true}
               downloadAction={true}
-              launchAction={false}
               editAction={false}
             />
           ) : props.selectedModal?.key === "3" ? (

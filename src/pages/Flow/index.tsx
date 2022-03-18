@@ -1,17 +1,12 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { Add32 } from "@carbon/icons-react";
-import { Button } from "carbon-components-react";
-import {
-  PageHeader,
-  PageContainer,
-  HeaderAction,
-  MobileContainerDiv,
-} from "../../shared/layout";
+import { PageContainer, MobileContainerDiv } from "../../shared/layout";
 import NewFlow from "./NewFlow";
 import { FlowContextProvider } from "./context";
 import FlowContent from "./FlowContent";
 import FlowContentMobile from "./FlowContentMobile";
+import PageHeader from "../../components/PageHeader";
 
 const FlowContainer = styled.div``;
 
@@ -29,26 +24,28 @@ const Flow: React.FC = () => {
   return (
     <FlowContextProvider>
       <MobileContainerDiv>
-        <PageHeader>
-          <h2>Flow Studio</h2>
-        </PageHeader>
+        <PageHeader
+          breadcrumb={[
+            { text: "Home", isCurrentPage: false, link: "/" },
+            { text: "Flow", isCurrentPage: true },
+          ]}
+          headerText={"Flow Studio"}
+        />
         <FlowContentMobile />
       </MobileContainerDiv>
 
       <PageContainer>
-        <PageHeader>
-          <h2>Flow Studio</h2>
-          <HeaderAction>
-            <Button
-              onClick={() => toggleModal()}
-              renderIcon={Add32}
-              iconDescription="Run Flow"
-              size={"field"}
-            >
-              New Flow
-            </Button>
-          </HeaderAction>
-        </PageHeader>
+        <PageHeader
+          action={() => toggleModal()}
+          breadcrumb={[
+            { text: "Home", isCurrentPage: false, link: "/" },
+            { text: "Flow", isCurrentPage: true },
+          ]}
+          buttonText={"New Flow"}
+          icon={Add32}
+          headerText={"Flow Studio"}
+        />
+
         <FlowContainer>
           <FlowContent />
         </FlowContainer>

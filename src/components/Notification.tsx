@@ -22,7 +22,7 @@ const Notification: React.FC<NotificationProps> = ({
     <ToastNotification
       kind={kind}
       title={title}
-      lowContrast={false}
+      lowContrast={true}
       subtitle={subtitle}
       style={{ ...styles, width: "100%" }}
       hideCloseButton={hideCloseButton}

@@ -9,6 +9,7 @@ import {
   DotMark16,
 } from "@carbon/icons-react";
 import "./style.scss";
+import { Tag } from "carbon-components-react";
 import { StateColors } from "../../shared/themes";
 import styled from "styled-components";
 import { Path } from "@carbon/pictograms-react";
@@ -19,7 +20,6 @@ export interface StyledTableProps {
   isPrimaryButton: boolean;
   isActions: boolean;
   deleteAction?: boolean;
-  launchAction?: boolean;
   editAction?: boolean;
   downloadAction?: boolean;
   rowData: Array<{ [key: string]: any }>;
@@ -47,7 +47,6 @@ const StyledTable: React.FC<StyledTableProps> = ({
   isActions,
   deleteAction,
   downloadAction,
-  launchAction,
   editAction,
 }) => {
   const deleteClick = (event: React.MouseEvent<HTMLElement>) => {
@@ -62,7 +61,7 @@ const StyledTable: React.FC<StyledTableProps> = ({
   console.log(rowData);
 
   return (
-    <div className="bx--data-table-container " data-table>
+    <div className="bx--data-table-container" data-table>
       {isTableHeader ? (
         <div className="bx--data-table-header">
           <h4 className="bx--data-table-header__title">Table title</h4>
@@ -133,11 +132,6 @@ const StyledTable: React.FC<StyledTableProps> = ({
 
                 {isActions ? (
                   <Fragment>
-                    {launchAction ? (
-                      <th className="bx--table-column-menu">Launch</th>
-                    ) : (
-                      ""
-                    )}
                     {editAction ? (
                       <th className="bx--table-column-menu">Edit</th>
                     ) : (
@@ -172,15 +166,10 @@ const StyledTable: React.FC<StyledTableProps> = ({
                       header?.key === "targetsState" ? (
                       <td>
                         {" "}
-                        <span
+                        <Tag
                           style={{
-                            display: "flex",
-                            alignContent: "center",
-                            gap: "10px",
-                          }}
-                        >
-                          <DotMark16
-                            fill={
+                            minWidth: "60px",
+                            backgroundColor:
                               row[`${header?.key}`] === "open"
                                 ? StateColors.open
                                 : row[`${header?.key}`] === "failed"
@@ -191,11 +180,14 @@ const StyledTable: React.FC<StyledTableProps> = ({
                                 ? StateColors.warning
                                 : row[`${header?.key}`] === "running"
                                 ? StateColors.running
-                                : StateColors.neutral
-                            }
-                          />{" "}
-                          {row[`${header?.key}`]}
-                        </span>
+                                : StateColors.neutral,
+                          }}
+                        >
+                          <small style={{ color: "#fff" }}>
+                            {" "}
+                            {row[`${header?.key}`]}
+                          </small>
+                        </Tag>
                       </td>
                     ) : (
                       <td> {row[`${header?.key}`]}</td>
@@ -204,22 +196,6 @@ const StyledTable: React.FC<StyledTableProps> = ({
 
                   {isActions ? (
                     <Fragment>
-                      {launchAction ? (
-                        <td className="bx--table-column-menu">
-                          <div
-                            data-overflow-menu
-                            role="menu"
-                            tabIndex={1}
-                            aria-label="Overflow menu description"
-                            className="bx--overflow-menu"
-                            onClick={downloadClick}
-                          >
-                            <Launch16 />
-                          </div>
-                        </td>
-                      ) : (
-                        ""
-                      )}
                       {editAction ? (
                         <td className="bx--table-column-menu">
                           <div

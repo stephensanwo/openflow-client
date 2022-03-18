@@ -5,9 +5,10 @@ import FlowActions from "../../components/FlowActions";
 import NodeSelector from "../../components/NodeSelector";
 import { Play32 } from "@carbon/icons-react";
 import { Button } from "carbon-components-react";
-import { PageHeader, HeaderAction } from "../../shared/layout";
+import { HeaderAction } from "../../shared/layout";
 import { useLocation } from "react-router-dom";
 import { FlowContext } from "../Flow/context";
+import PageHeader from "../../components/PageHeader";
 
 const FlowItemContainer = styled.div`
   display: flex;
@@ -40,14 +41,16 @@ const FlowItemContent = () => {
 
   return (
     <Fragment>
-      <PageHeader>
-        <h2>{flowItemData.name}</h2>
-        <HeaderAction>
-          <Button renderIcon={Play32} iconDescription="Run Flow" size={"field"}>
-            Run All
-          </Button>
-        </HeaderAction>
-      </PageHeader>
+      <PageHeader
+        breadcrumb={[
+          { text: "Home", isCurrentPage: false, link: "/" },
+          { text: "Flow", isCurrentPage: false, link: "/flow" },
+          { text: "Flow Studio", isCurrentPage: true },
+        ]}
+        buttonText={"Run All"}
+        icon={Play32}
+        headerText={flowItemData.name}
+      />
       <FlowItemContainer>
         <NodeSelectorDiv>
           <NodeSelector />

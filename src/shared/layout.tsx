@@ -13,7 +13,7 @@ export const PageContainer = styled.div`
   }
 `;
 
-export const PageHeader = styled.h2`
+export const PageHeaderContainer = styled.h2`
   margin-bottom: 40px;
   display: flex;
   justify-content: space-between;
