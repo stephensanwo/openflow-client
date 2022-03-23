@@ -158,13 +158,26 @@ const StyledTable: React.FC<StyledTableProps> = ({
                 <tr>
                   {headerData?.map((header) =>
                     header.headerIsLink ? (
-                      <td>
+                      <td
+                        style={{
+                          backgroundColor: "#262626",
+                          borderBottom: "0.1px solid #333333",
+                          borderTop: "0.1px solid #333333",
+                        }}
+                      >
                         <Link to={row.link}>{row[`${header?.key}`]} </Link>
                       </td>
                     ) : header?.key === "state" ||
                       header?.key === "sourcesState" ||
                       header?.key === "targetsState" ? (
-                      <td>
+                      <td
+                        style={{
+                          backgroundColor: "#262626",
+                          borderBottom: "0.1px solid #333333",
+                          borderTop: "0.1px solid #333333",
+                          color: "#b5b5b5",
+                        }}
+                      >
                         {" "}
                         <Tag
                           style={{
@@ -190,14 +203,32 @@ const StyledTable: React.FC<StyledTableProps> = ({
                         </Tag>
                       </td>
                     ) : (
-                      <td> {row[`${header?.key}`]}</td>
+                      <td
+                        style={{
+                          backgroundColor: "#262626",
+                          borderBottom: "0.1px solid #333333",
+                          borderTop: "0.1px solid #333333",
+                          color: "#b5b5b5",
+                        }}
+                      >
+                        {" "}
+                        {row[`${header?.key}`]}
+                      </td>
                     )
                   )}
 
                   {isActions ? (
                     <Fragment>
                       {editAction ? (
-                        <td className="bx--table-column-menu">
+                        <td
+                          className="bx--table-column-menu"
+                          style={{
+                            backgroundColor: "#262626",
+                            borderBottom: "0.1px solid #333333",
+                            borderTop: "0.1px solid #333333",
+                            color: "#b5b5b5",
+                          }}
+                        >
                           <div
                             data-overflow-menu
                             role="menu"
@@ -213,7 +244,15 @@ const StyledTable: React.FC<StyledTableProps> = ({
                         ""
                       )}
                       {downloadAction ? (
-                        <td className="bx--table-column-menu">
+                        <td
+                          className="bx--table-column-menu"
+                          style={{
+                            backgroundColor: "#262626",
+                            borderBottom: "0.1px solid #333333",
+                            borderTop: "0.1px solid #333333",
+                            color: "#b5b5b5",
+                          }}
+                        >
                           <div
                             data-overflow-menu
                             role="menu"
@@ -229,7 +268,15 @@ const StyledTable: React.FC<StyledTableProps> = ({
                         ""
                       )}
                       {deleteAction ? (
-                        <td className="bx--table-column-menu">
+                        <td
+                          className="bx--table-column-menu"
+                          style={{
+                            backgroundColor: "#262626",
+                            borderBottom: "0.1px solid #333333",
+                            borderTop: "0.1px solid #333333",
+                            color: "#b5b5b5",
+                          }}
+                        >
                           <div
                             data-overflow-menu
                             role="menu"

@@ -3,7 +3,7 @@ import { Close32 } from "@carbon/icons-react";
 import { useLocation } from "react-router-dom";
 import { Form, TextInput, Dropdown } from "carbon-components-react";
 import { ComponentProps, InputTextComponent } from "../Components";
-import { NodeContext } from "../../Node/context";
+import { NodeContext } from "../../../context/nodes";
 import { errorProps, validateComponentInput } from "./validation";
 import { ThemeColors } from "../../../shared/themes";
 
@@ -154,6 +154,7 @@ const NewComponent: React.FC<ModalProps> = (props) => {
                 onChange={handleSelect}
                 invalid={componentError === "" ? false : true}
                 invalidText={componentError}
+                light={false}
               />
             </div>
             {Object.keys(newComponent).length === 0 ? (
@@ -188,6 +189,24 @@ const NewComponent: React.FC<ModalProps> = (props) => {
                       </p>
                     </div>
                   )}
+                </div>
+                <div style={{ marginBottom: "2rem" }}>
+                  <TextInput
+                    helperText=""
+                    id="variableName"
+                    invalid={
+                      Object.keys(validationErrors).includes("variableName")
+                        ? true
+                        : false
+                    }
+                    invalidText={validationErrors.variableName}
+                    labelText="Component Variable Name *"
+                    placeholder={
+                      "Give your component a variable name. This will be used in your code"
+                    }
+                    onChange={handleChange}
+                    disabled={false}
+                  />
                 </div>
 
                 <div style={{ marginBottom: "2rem" }}>

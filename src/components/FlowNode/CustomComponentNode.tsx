@@ -1,20 +1,30 @@
 import React, { useContext } from "react";
 import { Handle, Position } from "react-flow-renderer";
 import {
-  CloudUpload24,
   PlayFilled24,
   Misuse24,
   CheckmarkFilled24,
+  DotMark16,
 } from "@carbon/icons-react";
 import { InlineLoading } from "carbon-components-react";
 import "./style.scss";
 import { FlowItemContext } from "../../pages/FlowItem/context";
 import { StateColors } from "../../shared/themes";
 import { NewNodeProps } from "../NodeSelector/NodeSelectorItem";
+import styled from "styled-components";
 
-const CustomInputNode: React.FC<NewNodeProps> = ({
+const Description = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  gap: 10px;
+  margin-top: 5px;
+`;
+
+const CustomComponentNode: React.FC<NewNodeProps> = ({
   id,
   data,
+
   position,
   handle,
 }) => {
@@ -30,10 +40,33 @@ const CustomInputNode: React.FC<NewNodeProps> = ({
       onClick={() => handleNodeClick(id)}
     >
       <div className="node-content">
-        <CloudUpload24 />
         <div>
           <div className="node-label">{data.label}</div>
-          <div className="node-description">{data.description}</div>
+          <div className="node-description">
+            {`${data.description}`.slice(0, 65)}
+            {data.description.length > 65 ? "..." : ""}
+          </div>
+          <div className="node-status">
+            <Description>
+              <small>Run ID: {id}</small>
+
+              <small>Run Time: 2s</small>
+
+              <span className="styled-span">
+                <small>State: </small>
+                <DotMark16
+                  fill={
+                    data.state === "open"
+                      ? StateColors.success
+                      : data.state === "failed"
+                      ? StateColors.failed
+                      : StateColors.open
+                  }
+                />
+                <small>{data.state}</small>
+              </span>
+            </Description>
+          </div>
         </div>
         <div>
           {data.state === "running" ? (
@@ -62,35 +95,8 @@ const CustomInputNode: React.FC<NewNodeProps> = ({
         position={Position.Top}
         style={{ borderRadius: 0 }}
       />
-      {/* <Handle
-        type="source"
-        position={Position.Left}
-        id="b"
-        style={{ top: "50%", borderRadius: 0 }}
-      /> */}
-
-      {/* {handle.left ? (
-        <Handle
-          type="source"
-          position={Position.Left}
-          id="a"
-          style={{ top: "100%", borderRadius: 0 }}
-        />
-      ) : (
-        <> </>
-      )}
-      {handle.right ? (
-        <Handle
-          type="source"
-          position={Position.Right}
-          id="a"
-          style={{ top: "100%", borderRadius: 0 }}
-        />
-      ) : (
-        <> </>
-      )} */}
     </div>
   );
 };
 
-export default CustomInputNode;
+export default CustomComponentNode;

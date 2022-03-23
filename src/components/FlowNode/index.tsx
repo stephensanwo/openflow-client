@@ -1,1 +1,1 @@
-export { default as CustomInputNode } from "./CustomInputNode";
+export { default as CustomComponentNode } from "./CustomComponentNode";

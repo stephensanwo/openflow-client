@@ -1,6 +1,6 @@
 import React, { Fragment, useContext } from "react";
 import { Tile } from "carbon-components-react";
-import { FlowContext } from "./context";
+import { FlowContext } from "../../context/flow";
 import { StateColors } from "../../shared/themes";
 import { DotMark16 } from "@carbon/icons-react";
 

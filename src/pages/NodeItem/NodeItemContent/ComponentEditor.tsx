@@ -1,26 +1,20 @@
 import React, { Fragment, useContext, useState } from "react";
 import styled from "styled-components";
 import { useLocation } from "react-router-dom";
-import { NodeContext } from "../../Node/context";
+import { NodeContext } from "../../../context/nodes";
 import { Button, TextInput } from "carbon-components-react";
-import {
-  Add16,
-  Add24,
-  Close24,
-  Edit16,
-  Popup16,
-  Delete16,
-} from "@carbon/icons-react";
-import { StateColors, ThemeColors } from "../../../shared/themes";
+import { Add16, Code32 } from "@carbon/icons-react";
+import { StateColors } from "../../../shared/themes";
 import NewComponent from "./NewComponent";
 import { ComponentProps } from "../Components";
+import { Heading5 } from "../../../shared/layout";
+import ActionButton from "../../../components/ActionButton";
 
 const ComponentEditorDiv = styled.div`
   height: 95%;
-  width: 50%;
-  margin: auto;
-  padding: 20px;
-  background-color: #fff;
+  width: 39%;
+  /* padding: 20px; */
+  /* background-color: #262626; */
 `;
 
 const ComponentEditor = () => {
@@ -42,15 +36,23 @@ const ComponentEditor = () => {
 
   console.log(nodeItemData);
 
+  const handleDelete = (id: any) => {
+    let updatedNodes = nodeData.nodes;
+    console.log(id);
+    updatedNodes.filter((component) => component.id !== id.toString());
+
+    nodeData.setNodes([...updatedNodes]);
+  };
+
   return (
     <ComponentEditorDiv>
       <div style={{ display: "flex", justifyContent: "space-between" }}>
         <div>
           <small>Build your component node</small>
-          <h5>{nodeItemData.name}</h5>
+          <Heading5 theme="dark">{nodeItemData.name}</Heading5>
         </div>
 
-        <div style={{ display: "flex", gap: "5px" }}>
+        <div>
           <Button
             kind="primary"
             size="small"
@@ -63,17 +65,6 @@ const ComponentEditor = () => {
             </small>
             <Add16 />
           </Button>
-          <Button
-            kind="secondary"
-            size="small"
-            iconDescription={"Add component"}
-            hasIconOnly
-          >
-            <small style={{ marginRight: "0.5rem", color: "#fff" }}>
-              Preview Node
-            </small>
-            <Popup16 />
-          </Button>
         </div>
       </div>
       <div>
@@ -82,20 +73,18 @@ const ComponentEditor = () => {
             style={{
               height: "300px",
               display: "flex",
+              flexDirection: "column",
               justifyContent: "center",
               alignItems: "center",
               marginTop: "40px",
             }}
           >
-            <p style={{ color: StateColors.open }}>
-              <Button
-                kind="ghost"
-                renderIcon={Add24}
-                size="field"
-                onClick={() => toggleModal()}
-              >
-                Add new component to start
-              </Button>
+            <Code32
+              fill={StateColors.running}
+              style={{ width: "80px", height: "80px" }}
+            />
+            <p style={{ color: StateColors.running }}>
+              Add new component to start
             </p>
           </div>
         ) : (
@@ -108,26 +97,29 @@ const ComponentEditor = () => {
               (component: ComponentProps, index: any) => (
                 <div
                   style={{
-                    marginBottom: "2rem",
+                    marginBottom: "1rem",
+                    // border: "0.1px dashed #4589ff",
                     display: "flex",
                     alignItems: "center",
                     gap: "20px",
-                    border: "1px dashed #e8e8e8",
+                    backgroundColor: "#262626",
                     cursor: "pointer",
-                    padding: "10px",
+                    padding: "20px",
                     position: "relative",
-                    backgroundColor: `${ThemeColors.bgSecondary}`,
                   }}
                   key={index}
                 >
                   {component.type === "input-text" ? (
-                    <TextInput
-                      helperText={component.helperText}
-                      id={component.id}
-                      labelText={component.labelText}
-                      placeholder={component.placeholder}
-                      disabled={true}
-                    />
+                    <Fragment>
+                      <TextInput
+                        helperText={component.helperText}
+                        id={component.id}
+                        labelText={component.labelText}
+                        placeholder={component.placeholder}
+                        disabled={true}
+                        style={{ backgroundColor: "#333333" }}
+                      />
+                    </Fragment>
                   ) : (
                     <Fragment></Fragment>
                   )}
@@ -143,29 +135,15 @@ const ComponentEditor = () => {
                       justifyContent: "space-between",
                     }}
                   >
-                    <div
-                      style={{
-                        width: "30px",
-                        height: "30px",
-                        display: "flex",
-                        justifyContent: "center",
-                        alignItems: "center",
-                      }}
-                    >
-                      <Edit16 />
-                    </div>
+                    <ActionButton
+                      actionType="edit"
+                      onClick={() => toggleModal()}
+                    />
 
-                    <div
-                      style={{
-                        width: "30px",
-                        height: "30px",
-                        display: "flex",
-                        justifyContent: "center",
-                        alignItems: "center",
-                      }}
-                    >
-                      <Delete16 />
-                    </div>
+                    <ActionButton
+                      actionType="delete"
+                      onClick={() => handleDelete(component.id)}
+                    />
                   </div>
                 </div>
               )

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { NodeItemContextProvider } from "./context";
 import { PageContainer, MobileWarningDiv } from "../../shared/layout";
-import { NodeContextProvider } from "../Node/context";
+import { NodeContextProvider } from "../../context/nodes";
 import NodeItemContent from "./NodeItemContent";
 
 const FlowItem: React.FC = () => {
@@ -21,7 +21,7 @@ const FlowItem: React.FC = () => {
             </p>
           </MobileWarningDiv>
         ) : (
-          <PageContainer>
+          <PageContainer dark>
             <NodeItemContent />
           </PageContainer>
         )}

@@ -1,5 +1,5 @@
 export const StateColors = {
-  open: "#1f70ff",
+  open: "#1192e8",
   success: "#42be65",
   failed: "#fa4d56",
   neutral: "#fff",
@@ -10,4 +10,6 @@ export const StateColors = {
 export const ThemeColors = {
   bgPrimary: "#f4f4f4",
   bgSecondary: "#393939",
+  primaryAction: "#42be65",
+  dangerAction: "#fa4d56",
 };

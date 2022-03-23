@@ -4,10 +4,8 @@ import styled from "styled-components";
 import FlowActions from "../../components/FlowActions";
 import NodeSelector from "../../components/NodeSelector";
 import { Play32 } from "@carbon/icons-react";
-import { Button } from "carbon-components-react";
-import { HeaderAction } from "../../shared/layout";
 import { useLocation } from "react-router-dom";
-import { FlowContext } from "../Flow/context";
+import { FlowContext } from "../../context/flow";
 import PageHeader from "../../components/PageHeader";
 
 const FlowItemContainer = styled.div`
@@ -18,17 +16,16 @@ const FlowItemContainer = styled.div`
 `;
 
 export const FlowTreeDiv = styled.div`
-  background-color: #fff;
+  background-color: #262626;
   width: 45%;
 `;
 const NodeSelectorDiv = styled.div`
-  background-color: #fff;
   width: 17.5%;
-  padding: 15px;
 `;
 
 const ActionsDiv = styled.div`
   // background-color: #fff;
+  /* background-color: #262626; */
   width: 35%;
 `;
 

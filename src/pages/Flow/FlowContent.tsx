@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import StyledTable from "../../components/StyledTable";
-import { FlowContext } from "./context";
+import { FlowContext } from "../../context/flow";
 
 const headerData = [
   {

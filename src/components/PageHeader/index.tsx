@@ -1,6 +1,7 @@
 import React from "react";
 import { PageHeaderContainer, HeaderAction } from "../../shared/layout";
 import { Button, BreadcrumbItem, Breadcrumb } from "carbon-components-react";
+import "./style.scss";
 
 interface PageHeaderProps {
   action?: React.Dispatch<React.SetStateAction<any>>;
@@ -12,6 +13,7 @@ interface PageHeaderProps {
   buttonText?: string;
   icon?: React.ReactNode;
   headerText: string;
+  theme?: "dark" | "light";
 }
 
 const PageHeader: React.FC<PageHeaderProps> = (props) => {
@@ -35,7 +37,9 @@ const PageHeader: React.FC<PageHeaderProps> = (props) => {
             </BreadcrumbItem>
           ))}
         </Breadcrumb>
-        <h2>{props.headerText}</h2>
+        <h2 style={{ color: props.theme === "dark" ? "#fff" : "" }}>
+          {props.headerText}
+        </h2>
       </div>
       {props.buttonText ? (
         <HeaderAction>

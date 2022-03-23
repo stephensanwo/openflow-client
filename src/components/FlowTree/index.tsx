@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 import { FlowItemContext } from "../../pages/FlowItem/context";
-import { CustomInputNode } from "../FlowNode";
+import { CustomComponentNode } from "../FlowNode";
 
 import ReactFlow, {
   ReactFlowProvider,
@@ -13,7 +13,7 @@ import ReactFlow, {
 import TreeControls from "./TreeControls";
 
 const nodeTypes = {
-  input: CustomInputNode,
+  input: CustomComponentNode,
 };
 
 const FlowTreeDiv = styled.div`

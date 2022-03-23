@@ -8,6 +8,7 @@ interface NotificationProps {
   hideCloseButton: boolean;
   caption: React.ReactNode;
   styles?: object;
+  lowContrast?: boolean;
 }
 
 const Notification: React.FC<NotificationProps> = ({
@@ -17,12 +18,13 @@ const Notification: React.FC<NotificationProps> = ({
   kind,
   hideCloseButton,
   styles,
+  lowContrast,
 }) => {
   return (
     <ToastNotification
       kind={kind}
       title={title}
-      lowContrast={true}
+      lowContrast={lowContrast}
       subtitle={subtitle}
       style={{ ...styles, width: "100%" }}
       hideCloseButton={hideCloseButton}

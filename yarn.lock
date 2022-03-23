@@ -1171,6 +1171,11 @@
     "lodash-es" "4.17.21"
     "resize-observer-polyfill" "1.5.0"
 
+"@carbon/colors@^10.37.0":
+  "integrity" "sha512-N0w5u7bcnhC/k7RqvdHoPvD9j4c1chyGpwrim5Zrpusksr4EJz9/M3+UoBdInmweTxvwx4UGPICmuSWRXpKLpg=="
+  "resolved" "https://registry.npmjs.org/@carbon/colors/-/colors-10.37.0.tgz"
+  "version" "10.37.0"
+
 "@carbon/colors@10.29.0":
   "integrity" "sha512-Ga20vVFGrhEgALIVZoWbcooWOVnx7Ox8GbRWlZDEAe6JUbz6ynDKiq3td7GtFVk0ELRCIV8gVu3F/PfssyhwQA=="
   "resolved" "https://registry.npmjs.org/@carbon/colors/-/colors-10.29.0.tgz"
@@ -1180,6 +1185,14 @@
   "integrity" "sha512-nxVvnSMC6Ia/xn0j02FHPATfB/Iv6nnkZAQ6GrEdPLivSF1T2oaTvgawUsXBO8RBX7wQBq5l7uW8qH/0WfjIFw=="
   "resolved" "https://registry.npmjs.org/@carbon/feature-flags/-/feature-flags-0.7.0.tgz"
   "version" "0.7.0"
+
+"@carbon/grid@^10.43.0":
+  "integrity" "sha512-nVyS36Q99GRgda/ntHaUfQpf9+Hts3loqqclwq+l2D1QpuqqL5FTYfJEvLj63AM+/Rt71O+Z8PuXnYJTw0PwGA=="
+  "resolved" "https://registry.npmjs.org/@carbon/grid/-/grid-10.43.0.tgz"
+  "version" "10.43.0"
+  dependencies:
+    "@carbon/import-once" "^10.7.0"
+    "@carbon/layout" "^10.37.0"
 
 "@carbon/icon-helpers@^10.26.0", "@carbon/icon-helpers@^10.28.0":
   "integrity" "sha512-hf4fjouzr3jCvh5lTWJt87ABWmoq+3ck0/OOLpxUZLfhumTLRW+8H1Ctz0ldQh5mhmFaPNQUifll6tGI5bkmTw=="
@@ -1195,10 +1208,15 @@
     "@carbon/telemetry" "0.0.0-alpha.6"
     "prop-types" "^15.7.2"
 
-"@carbon/layout@^10.35.0":
-  "integrity" "sha512-UKMOVN+fNnvNbIOPpSg3BlO5/tT+rd4O+exEWrPAb416WehHP2y/kf9l+EI2bD784gF4TtXVqwbr+SV7GGLjtw=="
-  "resolved" "https://registry.npmjs.org/@carbon/layout/-/layout-10.35.0.tgz"
-  "version" "10.35.0"
+"@carbon/import-once@^10.7.0":
+  "integrity" "sha512-KoqbfzGKjO89iUPabN6zNpXpcjxgQYgpHmesZ/DXc/zeV0PyHrnAOC8Q3J0cRPf1zYpGRHN2Tbw1ttTjonzbjg=="
+  "resolved" "https://registry.npmjs.org/@carbon/import-once/-/import-once-10.7.0.tgz"
+  "version" "10.7.0"
+
+"@carbon/layout@^10.35.0", "@carbon/layout@^10.37.0":
+  "integrity" "sha512-6Oyinqc72MQsV9OKT5SYPHHkQh1WrQU+lyV7dSHucMKrHJ9RAQLbno7pBD9oOcwoLfq4u9D9KSdXf8SntChphw=="
+  "resolved" "https://registry.npmjs.org/@carbon/layout/-/layout-10.37.0.tgz"
+  "version" "10.37.0"
 
 "@carbon/pictograms-react@^11.23.0":
   "integrity" "sha512-TcTDc3jdVOF7e6Bk0LOoeN9q+xAb9KCXfnFxfz/w50xZrABL0JNY5DgRH7LURH4M1vbEqEk8ix8R11m6gCpb2Q=="
@@ -1224,6 +1242,24 @@
     "semver" "^7.3.2"
     "winston" "^3.3.3"
     "yargs" "^16.1.1"
+
+"@carbon/themes@^10.53.1":
+  "integrity" "sha512-3k1nhkUtlYH6vOWPab2x9JFYoP1k0IA1ba78xSiNnKYMFSWIwVQ2ekDlyJugg1k45Prl2S2YUok2C43hVzEIuw=="
+  "resolved" "https://registry.npmjs.org/@carbon/themes/-/themes-10.53.1.tgz"
+  "version" "10.53.1"
+  dependencies:
+    "@carbon/colors" "^10.37.0"
+    "@carbon/layout" "^10.37.0"
+    "@carbon/type" "^10.43.1"
+    "color" "^3.1.2"
+
+"@carbon/type@^10.43.1":
+  "integrity" "sha512-zfXcmUeqXhaugDtBR0GMiS3drr4mpVZ6n2CiS8B6X6P+aTMgzjsbzgRNe5uXNFGot74IhhxgaKogFd/SBviCmg=="
+  "resolved" "https://registry.npmjs.org/@carbon/type/-/type-10.43.1.tgz"
+  "version" "10.43.1"
+  dependencies:
+    "@carbon/grid" "^10.43.0"
+    "@carbon/import-once" "^10.7.0"
 
 "@carbon/utils-position@1.1.1":
   "integrity" "sha512-W8ykraEzr9WsH8+6+FgI6lmK4elFxH8Uy9+XDbDTvyVbF6fq5jgi4dPCDd1AoCtUBCcLAehInhReDaFM3DrM6w=="
@@ -3624,7 +3660,7 @@
     "color-name" "^1.0.0"
     "simple-swizzle" "^0.2.2"
 
-"color@^3.1.3":
+"color@^3.1.2", "color@^3.1.3":
   "integrity" "sha512-aBl7dZI9ENN6fUGC7mWpMTPNHmWUSNan9tuWN6ahh5ZLNk9baLJOnSMlrQkHcrfFgz2/RigjUVAjdx36VcemKA=="
   "resolved" "https://registry.npmjs.org/color/-/color-3.2.1.tgz"
   "version" "3.2.1"

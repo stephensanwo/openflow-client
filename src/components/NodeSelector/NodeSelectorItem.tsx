@@ -3,12 +3,15 @@ import { DotMark16, AddAlt16 } from "@carbon/icons-react";
 import styled from "styled-components";
 import { StateColors } from "../../shared/themes";
 import { FlowItemContext } from "../../pages/FlowItem/context";
+import { ComponentProps } from "../../pages/NodeItem/Components";
+import { NewNodeProps as NodeSelectorProps } from "../../pages/Node/NewNode";
 
 const Description = styled.div`
   display: flex;
   align-items: center;
   justify-content: left;
   gap: 10px;
+  margin-top: 5px;
 `;
 
 const NodeSelectorItemContainer = styled.div`
@@ -17,25 +20,31 @@ const NodeSelectorItemContainer = styled.div`
   align-items: center;
   width: 100%;
   margin-bottom: 15px;
+  background-color: #262626;
+  padding: 10px;
 `;
 
-export interface NodeSelectorProps {
-  type: string;
-  data: {
-    label: string;
-    description: string;
-    version: string;
-    health: string;
-    state: "open" | "running" | "success" | "failed" | "warning";
-  };
-  code: string;
-}
+// export interface NodeSelectorProps {
+//   type: string;
+//   data: {
+//     label: string;
+//     description: string;
+//     version: string;
+//     health: string;
+//     state: "open" | "running" | "success" | "failed" | "warning";
+//   };
+//   code: string;
+//   component?: Array<ComponentProps>;
+// }
 
 export interface NewNodeProps {
   id: string;
   category: string;
   type: string;
+  name: string;
+  description: string;
   data: {
+    id: string;
     label: string;
     description: string;
     state: "open" | "running" | "success" | "failed" | "warning";
@@ -44,7 +53,7 @@ export interface NewNodeProps {
     x: number;
     y: number;
   };
-  code: string;
+  code?: string;
   handle?: {
     bottom: boolean;
     top: boolean;
@@ -54,25 +63,26 @@ export interface NewNodeProps {
   className: string;
   source?: string;
   target?: string;
+  components?: Array<ComponentProps>;
 }
 
-const NodeSelectorItem: React.FC<NodeSelectorProps> = ({
-  type,
-  data,
-  code,
-}) => {
+const NodeSelectorItem: React.FC<NodeSelectorProps> = (props) => {
   const flowData = useContext(FlowItemContext);
 
   const newNode: NewNodeProps = {
     id: (Number(flowData.elementsMetadata.lastNodeId) + 1).toString(),
     category: "node",
-    type: type,
+    name: props.name,
+    description: props.description,
+    type: "input",
     data: {
-      label: data.label,
-      description: data.description,
-      state: data.state,
+      id: props.id,
+      label: props.name,
+      description: props.description,
+      state: props.state,
     },
-    code: code,
+    components: props.components,
+    code: props.code,
     position: {
       x: flowData.elementsMetadata.flowWindowCenter,
       y: flowData.elementsMetadata.LastNodePositionY + 100,
@@ -85,28 +95,31 @@ const NodeSelectorItem: React.FC<NodeSelectorProps> = ({
     flowData.setElementsMetadata({
       ...flowData.elementsMetadata,
       lastNodeId: (Number(flowData.elementsMetadata.lastNodeId) + 1).toString(),
-      LastNodePositionY: flowData.elementsMetadata.LastNodePositionY + 100,
+      LastNodePositionY: flowData.elementsMetadata.LastNodePositionY + 150,
     });
   };
 
   return (
     <NodeSelectorItemContainer>
       <div>
-        <small>{data.description}</small>
+        <small>{props.name}</small>
         <Description>
-          <small>{data.version}</small>
+          <small>Author: {props.created_by}</small>
+
+          <small>Version: {props.version}</small>
 
           <span className="styled-span">
             <DotMark16
               fill={
-                data.state === "open"
+                props.state === "open"
                   ? StateColors.success
-                  : data.state === "failed"
+                  : props.state === "failed"
                   ? StateColors.failed
                   : StateColors.open
               }
             />
-            <small>{data.health}</small>
+
+            <small>{props.health}</small>
           </span>
         </Description>
       </div>

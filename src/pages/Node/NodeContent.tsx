@@ -1,9 +1,5 @@
 import React, { useContext } from "react";
-import { NodeContext } from "./context";
-import { Tile } from "carbon-components-react";
-import { DotMark16 } from "@carbon/icons-react";
-import { StateColors } from "../../shared/themes";
-import { Tag } from "carbon-components-react";
+import { NodeContext } from "../../context/nodes";
 import StyledTable from "../../components/StyledTable";
 
 const NodeContent: any = () => {

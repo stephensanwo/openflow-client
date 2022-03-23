@@ -4,6 +4,7 @@ export interface errorProps {
   placeholder?: string;
   labelText?: string;
   helperText?: string;
+  variableName?: string;
 }
 
 export const validateComponentInput = (newComponent: ComponentProps) => {
@@ -13,6 +14,12 @@ export const validateComponentInput = (newComponent: ComponentProps) => {
     newComponent.placeholder === ""
   ) {
     res.placeholder = "Placeholder of your component cannot be empty";
+  }
+  if (
+    !Object.keys(newComponent).includes("variableName") ||
+    newComponent.variableName === ""
+  ) {
+    res.variableName = "Variable name of your component cannot be empty";
   }
 
   if (

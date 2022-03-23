@@ -25,6 +25,7 @@ const Settings: React.FC<ModalProps> = (props) => {
 
   let nodeRowData = [
     {
+      id: "",
       label: "",
       description: "",
       state: "",
@@ -33,9 +34,11 @@ const Settings: React.FC<ModalProps> = (props) => {
 
   let edgeRowData = [
     {
+      sourceID: "",
       sourceLabel: "",
       sourceDescription: "",
       sourcesState: "",
+      targetID: "",
       targetLabel: "",
       targetDescription: "",
       targetsState: "",
@@ -47,6 +50,8 @@ const Settings: React.FC<ModalProps> = (props) => {
       key: "",
     },
   ];
+
+  console.log(elements);
 
   if (elements.length > 0) {
     nodeHeaderData = Object.keys(
@@ -62,6 +67,7 @@ const Settings: React.FC<ModalProps> = (props) => {
       .filter((item) => item.category === "node")
       .map((item, key) => {
         return {
+          id: item.id,
           label: item.data.label,
           description: item.data.description,
           state: item.data.state,
@@ -80,9 +86,11 @@ const Settings: React.FC<ModalProps> = (props) => {
         console.log(source);
         console.log(target);
         return {
+          sourceID: source.id,
           sourceLabel: source.data.label,
           sourceDescription: source.data.description,
           sourcesState: source.data.state,
+          targetID: target.id,
           targetLabel: target.data.label,
           targetDescription: target.data.description,
           targetsState: target.data.state,
@@ -144,8 +152,6 @@ const Settings: React.FC<ModalProps> = (props) => {
               headerData={nodeHeaderData}
               isActions={true}
               deleteAction={true}
-              downloadAction={true}
-              editAction={false}
             />
           ) : props.selectedModal?.key === "3" ? (
             <StyledTable
@@ -155,7 +161,6 @@ const Settings: React.FC<ModalProps> = (props) => {
               headerData={edgeHeaderData}
               isActions={true}
               deleteAction={true}
-              downloadAction={true}
             />
           ) : (
             <Fragment></Fragment>

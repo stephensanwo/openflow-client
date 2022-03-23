@@ -15,6 +15,7 @@ export interface ComponentProps {
   labelText?: string;
   //   action?: string;
   //   value?: string;
+  variableName?: string;
   defaultDisabled?: boolean;
 }
 
@@ -29,6 +30,7 @@ export const InputTextComponent: React.FC<ComponentProps> = (props) => {
       // onChange={props.action}
       disabled={props.defaultDisabled}
       // value={props.value}
+      variableName={props.variableName}
       light={false}
     />
   );

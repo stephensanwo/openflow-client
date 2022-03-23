@@ -7,6 +7,8 @@ import {
   Save16,
   EdgeNodeAlt16,
   Delete16,
+  Time16,
+  Download16,
 } from "@carbon/icons-react";
 import Settings from "./Settings";
 
@@ -14,7 +16,6 @@ const TreeControlsDiv = styled.div`
   height: 40px;
   padding-left: 10px;
   padding-bottom: 10px;
-  background-color: #fff;
   display: flex;
   gap: 2.5px;
   width: 100%;
@@ -54,6 +55,20 @@ const controlPanel: Array<ControlModalProps> = [
     description: "Delete Flow",
     icon: <Delete16 fill={StateColors.failed} />,
     key: "4",
+    triggerModal: true,
+  },
+  {
+    label: "Schedule",
+    description: "Schedule Flow",
+    icon: <Time16 fill={StateColors.failed} />,
+    key: "5",
+    triggerModal: true,
+  },
+  {
+    label: "Download",
+    description: "Download Flow",
+    icon: <Download16 fill={StateColors.failed} />,
+    key: "6",
     triggerModal: true,
   },
 ];

@@ -8,7 +8,7 @@ import {
   MobileContainerDiv,
 } from "../../shared/layout";
 import NewNode from "./NewNode";
-import { NodeContextProvider } from "./context";
+import { NodeContextProvider } from "../../context/nodes";
 import NodeContent from "./NodeContent";
 import PageHeader from "../../components/PageHeader";
 
@@ -42,7 +42,7 @@ const Flow: React.FC = () => {
         <NodeContent />
       </MobileContainerDiv>
 
-      <PageContainer>
+      <PageContainer dark>
         <PageHeader
           action={() => toggleModal()}
           breadcrumb={[
@@ -52,6 +52,7 @@ const Flow: React.FC = () => {
           buttonText={"New Node"}
           icon={Add32}
           headerText={"Node Designer"}
+          theme={"dark"}
         />
 
         <FlowContainer>

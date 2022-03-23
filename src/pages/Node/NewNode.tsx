@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { Close32 } from "@carbon/icons-react";
 import { Form, TextInput, Dropdown } from "carbon-components-react";
-import { NodeContext } from "./context";
+import { NodeContext } from "../../context/nodes";
 import { ComponentProps } from "../NodeItem/Components";
 
 interface ModalProps {
@@ -19,7 +19,10 @@ export interface NewNodeProps {
   last_edit?: string;
   link?: string;
   category: "code" | "component";
+  code?: string;
   components?: Array<ComponentProps> | any;
+  health?: "failing" | "working";
+  version?: string;
 }
 
 const NewNode: React.FC<ModalProps> = (props) => {

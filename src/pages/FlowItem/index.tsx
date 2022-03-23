@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import { FlowItemContextProvider } from "./context";
 import { PageContainer, MobileWarningDiv } from "../../shared/layout";
-import { FlowContextProvider } from "../Flow/context";
+import { FlowContextProvider } from "../../context/flow";
 import FlowItemContent from "./FlowItemContent";
+import { NodeContextProvider } from "../../context/nodes";
 
 const FlowItem: React.FC = () => {
   const [showMobileWarning, setShowMobileWarning] = useState(false);
@@ -13,18 +14,20 @@ const FlowItem: React.FC = () => {
   return (
     <FlowContextProvider>
       <FlowItemContextProvider>
-        {showMobileWarning ? (
-          <MobileWarningDiv>
-            <p>
-              <strong>OpenFlow</strong> is not supported on this screen size,
-              Please open on a desktop browser
-            </p>
-          </MobileWarningDiv>
-        ) : (
-          <PageContainer>
-            <FlowItemContent />
-          </PageContainer>
-        )}
+        <NodeContextProvider>
+          {showMobileWarning ? (
+            <MobileWarningDiv>
+              <p>
+                <strong>OpenFlow</strong> is not supported on this screen size,
+                Please open on a desktop browser
+              </p>
+            </MobileWarningDiv>
+          ) : (
+            <PageContainer dark>
+              <FlowItemContent />
+            </PageContainer>
+          )}
+        </NodeContextProvider>
       </FlowItemContextProvider>
     </FlowContextProvider>
   );

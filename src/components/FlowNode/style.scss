@@ -6,6 +6,7 @@
   margin: 0;
   font-family: "IBM Plex Sans";
   text-align: left;
+  color: #f4f4f4;
 }
 
 .node-description {
@@ -14,7 +15,20 @@
   line-height: 1.29;
   letter-spacing: 0.16px;
   margin: 0;
+  margin-top: 0.3rem;
   text-align: left;
+  color: #f4f4f4;
+}
+
+.node-status {
+  font-size: 0.675rem;
+  font-weight: 400;
+  line-height: 1.29;
+  letter-spacing: 0.16px;
+  margin: 0;
+  margin-top: 0.3rem;
+  text-align: left;
+  color: #f4f4f4;
 }
 .node-content {
   display: flex;
@@ -28,16 +42,15 @@
   border-radius: 0;
   padding: 0;
   width: 280px;
-  height: 60px;
+  min-height: 60px;
 }
 
 .node-container {
-  background-color: #f4f4f4;
   border: none;
   border-radius: 0;
   padding: 0;
   width: 280px;
-  height: 60px;
+  min-height: 60px;
   padding: 1rem;
 }
 
@@ -50,7 +63,7 @@
 }
 
 .node-container.open {
-  border-left: 4px solid #999999;
+  border-left: 4px solid #b5b5b5;
 }
 
 .node-container.failed {
@@ -59,4 +72,25 @@
 
 .edge-container {
   background-color: red;
+}
+
+.react-flow__node.react-flow__node-input {
+  background-color: #393939;
+}
+
+.react-flow__node.react-flow__node-input.selection {
+  background-color: #393939;
+  border: 2px solid #1192e8;
+}
+
+.react-flow__node-input .react-flow__handle {
+  background-color: #b5b5b5;
+  width: 7px;
+  height: 7px;
+  border-color: #b5b5b5;
+}
+
+.react-flow__node-input.selected,
+.react-flow__node-input.selected:hover {
+  outline: 1px solid #1192e8;
 }

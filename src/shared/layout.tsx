@@ -7,7 +7,7 @@ export const PageContainer = styled.div`
   padding-right: 3.5%;
   padding-left: 3.5%;
   padding-top: 40px;
-  background-color: #f4f4f4;
+  background-color: ${(props: any) => (props.dark ? "#161616" : "#f4f4f4")};
   @media (max-width: 1080px) {
     display: none;
   }
@@ -44,4 +44,9 @@ export const MobileContainerDiv = styled.div`
   @media ${device.laptop} {
     display: none;
   }
+`;
+
+export const Heading5 = styled.h5`
+  color: ${(props: { theme: string }) =>
+    props.theme === "dark" ? "#fff" : ""};
 `;

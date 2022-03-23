@@ -10,4 +10,5 @@ declare module "styled-components";
 declare module "react-flow-renderer";
 declare module "prismjs";
 declare module "@carbon/pictograms-react";
+declare module "@carbon/themes";
 declare let module: any;

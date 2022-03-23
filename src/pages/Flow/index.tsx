@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Add32 } from "@carbon/icons-react";
 import { PageContainer, MobileContainerDiv } from "../../shared/layout";
 import NewFlow from "./NewFlow";
-import { FlowContextProvider } from "./context";
+import { FlowContextProvider } from "../../context/flow";
 import FlowContent from "./FlowContent";
 import FlowContentMobile from "./FlowContentMobile";
 import PageHeader from "../../components/PageHeader";
@@ -34,7 +34,7 @@ const Flow: React.FC = () => {
         <FlowContentMobile />
       </MobileContainerDiv>
 
-      <PageContainer>
+      <PageContainer dark>
         <PageHeader
           action={() => toggleModal()}
           breadcrumb={[
